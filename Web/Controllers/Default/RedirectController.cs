@@ -16,7 +16,7 @@ namespace Web.Controllers.Default
     public class RedirectController : ControllerBase
     {
         protected readonly ILogger _logger;
-        protected readonly string _version = typeof(AuthController).Namespace.Split('.').LastOrDefault();
+        protected readonly string _version = typeof(RedirectController).Namespace.Split('.').LastOrDefault();
         public RedirectController(ILogger<RedirectController> logger)
         {
             this._logger = logger;

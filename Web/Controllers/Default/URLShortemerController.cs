@@ -15,7 +15,7 @@ namespace Web.Controllers.Default
     public class URLShortemerController : ControllerBase
     {
         protected readonly ILogger _logger;
-        protected readonly string _version = typeof(AuthController).Namespace.Split('.').LastOrDefault();
+        protected readonly string _version = typeof(URLShortemerController).Namespace.Split('.').LastOrDefault();
         public URLShortemerController(ILogger<URLShortemerController> logger)
         {
             this._logger = logger;
