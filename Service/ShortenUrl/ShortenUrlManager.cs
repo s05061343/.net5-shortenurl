@@ -31,11 +31,12 @@ namespace Service.ShortenUrl
 
         public string Translate(string id)
         {
-            var vo = _dbContext.Set<ShortUrlTable>()
+            var data = _dbContext.Set<ShortUrlTable>()
                 .Where(p => p.Id == id)
                 .FirstOrDefault();
-            if (vo != null)
-                return vo.Url;
+
+            if (data != null)
+                return data.Url;
             else
                 return null;
         }

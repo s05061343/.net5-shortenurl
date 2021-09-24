@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <_PublishTargetUrl>C:\Users\s0506\Documents\www\.net5-shortenurl\Publish</_PublishTargetUrl>
+    <History>True|2021-09-24T09:08:43.5419313Z;True|2021-09-24T16:57:57.1980660+08:00;</History>
+  </PropertyGroup>
+</Project>

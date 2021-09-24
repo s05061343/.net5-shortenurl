@@ -19,6 +19,7 @@ C:\WWW\surl_Tom\Model\bin\Debug\net5.0\Model.runtimeconfig.dev.json
 C:\WWW\surl_Tom\Model\bin\Debug\net5.0\Model.dll
 C:\WWW\surl_Tom\Model\bin\Debug\net5.0\ref\Model.dll
 C:\WWW\surl_Tom\Model\bin\Debug\net5.0\Model.pdb
+C:\WWW\surl_Tom\Model\obj\Debug\net5.0\Model.csprojAssemblyReference.cache
 C:\WWW\surl_Tom\Model\obj\Debug\net5.0\Model.GeneratedMSBuildEditorConfig.editorconfig
 C:\WWW\surl_Tom\Model\obj\Debug\net5.0\Model.AssemblyInfoInputs.cache
 C:\WWW\surl_Tom\Model\obj\Debug\net5.0\Model.AssemblyInfo.cs
