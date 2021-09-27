@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Cors;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Service.ShortenUrl;
@@ -21,6 +23,7 @@ namespace Web.Controllers.Default
             this._logger = logger;
         }
 
+        [AllowAnonymous]
         [HttpPost]
         public IActionResult Shorten(
             [FromServices] IShortenUrlManager _manager,

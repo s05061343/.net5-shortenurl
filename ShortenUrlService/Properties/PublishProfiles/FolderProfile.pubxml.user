@@ -5,6 +5,6 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <_PublishTargetUrl>C:\Users\s0506\Documents\www\.net5-shortenurl\Publish</_PublishTargetUrl>
-    <History>True|2021-09-24T09:08:43.5419313Z;True|2021-09-24T16:57:57.1980660+08:00;</History>
+    <History>True|2021-09-26T08:05:43.3593240Z;True|2021-09-26T15:03:08.5017620+08:00;True|2021-09-26T14:44:53.2202266+08:00;True|2021-09-26T14:35:31.4792270+08:00;True|2021-09-26T14:29:56.3096542+08:00;True|2021-09-24T17:08:43.5419313+08:00;True|2021-09-24T16:57:57.1980660+08:00;</History>
   </PropertyGroup>
 </Project>

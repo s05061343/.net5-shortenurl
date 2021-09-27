@@ -23,6 +23,8 @@ namespace Web
         {
             services.AddControllersWithViews();
 
+            services.AddCors();
+
             /*add filters */
             services.AddMvc(configuration =>
             {
@@ -47,6 +49,17 @@ namespace Web
                 options.AllowSynchronousIO = true;
             });
 
+            services.AddCors(options =>
+            {
+                options.AddPolicy(name: "CustomPolicy",
+                    builder =>
+                    {
+                        builder.WithOrigins("https://tomz-net5-web.herokuapp.com")
+                        .AllowAnyMethod()
+                        .AllowAnyHeader()
+                        .AllowCredentials();
+                    });
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -65,6 +78,8 @@ namespace Web
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseRouting();
+            // Make sure you call this before calling app.UseMvc()
+            app.UseCors("CustomPolicy");
             app.UseEndpoints(endpoints =>
             {
                 RouteConfiguration.Register(endpoints);
