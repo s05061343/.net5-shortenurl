@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Schedule;
 using Web.Filters;
 using Web.RouteConfig;
 using Web.ServiceContainer;
@@ -22,8 +23,6 @@ namespace Web
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-
-            services.AddCors();
 
             /*add filters */
             services.AddMvc(configuration =>
@@ -60,6 +59,8 @@ namespace Web
                         .AllowCredentials();
                     });
             });
+
+            services.AddHostedService(provider => provider.GetService<QuartzHostedService>());
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
