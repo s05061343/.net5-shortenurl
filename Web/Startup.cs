@@ -4,6 +4,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Schedule;
+using Schedule.Jobs;
+using System;
 using Web.Filters;
 using Web.RouteConfig;
 using Web.ServiceContainer;
@@ -60,7 +62,14 @@ namespace Web
                     });
             });
 
-            services.AddHostedService(provider => provider.GetService<QuartzHostedService>());
+            services.AddHostedService(provider =>
+            {
+                var _provider = provider.GetService<QuartzHostedService>();
+                _provider._allJobSchedules
+                .Add(new JobMetadata(jobName: "*from Startup", jobType: typeof(CheckExpiredJob), cronExpression: "0/3 * * * * ?"));
+                //.Add(new JobMetadata(jobName: "測試加入縮網址", jobType: Type.GetType("CheckExpiredJob"), cronExpression: "0/3 * * * * ?"));
+                return _provider;
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

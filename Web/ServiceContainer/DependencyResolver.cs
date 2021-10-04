@@ -4,10 +4,12 @@ using Quartz;
 using Quartz.Impl;
 using Quartz.Spi;
 using Schedule;
+using Schedule.Jobs;
 using Service.Auth;
 using Service.Auth.Token;
 using Service.ShortenUrl;
 using Service.ShortenUrl.Encrypt;
+using System.Collections.Generic;
 using Web.Filters;
 using Web.Vaildations.Auth;
 
@@ -16,11 +18,13 @@ namespace Web.ServiceContainer
     public static class DependencyResolver
     {
         public static ServiceProvider Services { get; private set; }
+        //public static IEnumerable<JobSchedule> _jobSchedules { get; private set; }
         public static void InitComponents(IServiceCollection services)
         {
             DependencyResolver.InitDbContext(services);
             DependencyResolver.InitService(services);
             DependencyResolver.InitValidator(services);
+            //DependencyResolver.InitJobSchedules(services);
             Services = services.BuildServiceProvider();
         }
 
@@ -43,7 +47,7 @@ namespace Web.ServiceContainer
             services.AddSingleton<IJobFactory, JobFactory>();
             services.AddSingleton<ISchedulerFactory, StdSchedulerFactory>();
             //向DI容器註冊Job
-            services.AddSingleton<ReportJob>();
+            services.AddSingleton<CheckExpiredJob>();
             //向DI容器註冊Host服務
             services.AddSingleton<QuartzHostedService>();
         }
@@ -52,5 +56,10 @@ namespace Web.ServiceContainer
         {
             services.AddScoped<IAuthRequestValidator, AuthRequestValidator>();
         }
+
+        //private static void InitJobSchedules(IServiceCollection services)
+        //{
+
+        //}
     }
 }

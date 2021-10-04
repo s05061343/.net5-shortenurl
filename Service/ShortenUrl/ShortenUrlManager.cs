@@ -24,19 +24,19 @@ namespace Service.ShortenUrl
         {
             var guid = Guid.NewGuid().ToString("N");
             var id = _encrypt.Encode(guid).Substring(0, HASH_CODE_LENGTH);
-            _dbContext.Set<ShortUrlTable>().Add(new ShortUrlTable { Id = id, Url = url });
+            _dbContext.Set<short_url>().Add(new short_url { id = id, url = url });
             _dbContext.SaveChanges();
             return id;
         }
 
         public string Translate(string id)
         {
-            var data = _dbContext.Set<ShortUrlTable>()
-                .Where(p => p.Id == id)
+            var data = _dbContext.Set<short_url>()
+                .Where(p => p.id == id)
                 .FirstOrDefault();
 
             if (data != null)
-                return data.Url;
+                return data.url;
             else
                 return null;
         }
